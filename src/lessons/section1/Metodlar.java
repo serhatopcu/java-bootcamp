@@ -17,8 +17,6 @@ public class Metodlar {
                geriye dondur
              }
 
-             example
-             Arabanin benzin durumunu ogrenmek istedigimiz bir metod yaziyoruz.
 
          */
         sayHello();
