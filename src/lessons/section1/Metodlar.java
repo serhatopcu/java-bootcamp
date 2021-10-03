@@ -1,8 +1,13 @@
 package lessons.section1;
 
+import java.util.Scanner;
+
 public class Metodlar {
 
     public static void main(String[] args) {
+
+
+        //instance class disaridan cagirma
         /*
              Geriye deger dondurmeyenler(void ifadesi yer alir)
              f(x,y) = x+y
@@ -19,6 +24,7 @@ public class Metodlar {
 
 
          */
+
         sayHello();
         writeMessage("selam");
         writeMessage("selam java");
@@ -34,13 +40,27 @@ public class Metodlar {
         //return ornegi
         //bol ve yonet
 
-       System.out.println("Benim adim serhat " + cikartR(2021,1986) +" yasindayim. yasimin hesabi  x2021 - y1986 bu degerleri cikardigimda olusuyor");
+        System.out.println("Benim adim serhat " + cikartR(2021,1986) +" yasindayim. yasimin hesabi  x2021 - y1986 bu degerleri cikardigimda olusuyor");
 
+        if(checkVaccineOrPCR() == true){
+            System.out.println("ucaga binebilirsiniz");
+        }else{
+            System.out.println("Ucaga Binemezsiniz.");
+        }
     }
 
 
+    static int topla(int sayi1){ //Overloding (asiri yuklenme fonksiyonu) ayni isimdeki birden fazla metodu parametreleri farkli olma zorunlulugu ile cagirabilir.
+        return sayi1;
+    }
+
     static int topla(int sayi1,int sayi2){ //geriye deger dondurur depolama ozelligi var.
-        return sayi1+sayi2;
+        if(sayi1 <5 ) {
+            return topla(5) + sayi2; // Overloading metodlar birbirleri icerisine dahil edilebilir.
+        }else{
+            return sayi1 + sayi2;
+        }
+
     }
 
     static int cikartR(int x,int y){
@@ -57,6 +77,26 @@ public class Metodlar {
 
     static void sayHello(){ //geriye deger dondurmeyen.
         System.out.println("merhaba");
+    }
+
+
+    static boolean checkVaccineOrPCR(){
+        Scanner scanner = new Scanner(System.in);
+        String answer;
+
+        System.out.println("Son 72 saatte pcr testi yaptirdiniz mi? [Y] [N]");
+        answer = scanner.next();
+
+        if(answer.equals("Y"))// .eauals("Y")    "y"=="y" string ifadelerde esitlik anlamini tasir.
+            return true;
+        else
+            System.out.println("Asi oldunuz mu ? [Y] [N]");
+            answer = scanner.next();
+            if (answer.equals("Y"))
+                return true;
+            else
+                return false;
+
     }
 
 }
