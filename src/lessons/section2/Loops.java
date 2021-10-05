@@ -14,11 +14,81 @@ public class Loops {
         //Example2();
         //Example3();
         //Example4();
-        Example5();
+        //Example5();
+        //Example6();
+        Example7();
 
     }
 
+    public static void Example7(){
+        /*
+        Paremetresi ile aldigi int turden a ve b degerleri a'nin b ninci kuvvetini donduren pow isimli methodu yaziniz
+        Math.pow sinifinin pow isimli methodu kullanilmayacaktir.
+        +2'2 = -2 * -2 = 4
+        Method b nin negatif degerleri icin 1 degerini dondursun
+         */
 
+        Scanner kb = new Scanner(System.in);
+
+        for(;;){//sonsuz dongu
+            System.out.println("Enter the Base number: ");
+            int baseNumber = Integer.parseInt(kb.nextLine());
+            System.out.println("Enter the power of the number: ");
+            int powerOfNumber = Integer.parseInt(kb.nextLine());
+
+            System.out.printf("pow(%d ^ %d) = %d%n",baseNumber,powerOfNumber,Example7pow(baseNumber,powerOfNumber));
+        }
+    }
+
+    public static int Example7pow(int baseNumber, int powerOfNumber){
+        if(baseNumber <= 0)
+            return 1;
+        int result=1;
+        //5^3 = 5 * 5 * 5
+        for(int i =0; i < powerOfNumber; ++i){
+            result *= baseNumber;
+        }
+        return result;
+    }
+    public static void Example6() {
+        /*
+            123 -> 321
+            1. step
+                reverse = 0
+                num = 123 100+20+3
+                reverse = (0*10) + (123 % 10=3)
+                num = ( 123/10 = 12)
+             2.step
+                reverse = 3
+                num = 12
+                reverse = (3*10) + (12 %10 =2)
+                num = (12/10 =1)
+
+             3.step
+                reverse = 32
+                num = 1
+                reverse = (32*10 =320) + (1 % 10 = 1)
+
+             4.step
+                321
+        */
+        System.out.print("Enter a Number: ");
+        Scanner kb = new Scanner(System.in);
+        int num;
+        while((num = Integer.parseInt(kb.nextLine())) != 0){
+           int reverse = Example6getReverse(num);
+            System.out.printf("The reverse of %d is %d%n", num, reverse);
+            System.out.print("Enter a Number: ");
+        }
+    }
+    public static int Example6getReverse(int num){
+        int reverse =0;
+        while (num !=0){
+            reverse = reverse * 10 + num % 10;
+            num /=10;
+        }
+        return reverse;
+    }
     public static void Example5() {
         /*
             DO NOT
